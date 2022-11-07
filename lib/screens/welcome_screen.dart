@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:login/constants.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';
 
@@ -62,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           children: <Widget>[
             Row(
               children: <Widget>[
-              /*  Hero(
+                /*  Hero(
                   tag: 'heroAnimate',
                   child: Container(
                     child: Image.asset('images/logo.png'),
@@ -80,16 +81,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 //   ),
                 // ),
 
-            GestureDetector(
-            onTap: () {
-                 Navigator.pop(context);
-      },
-              child: Center(
-
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Center(
                     child: AnimatedTextKit(
-
                       animatedTexts: [
-
                         TypewriterAnimatedText(
                           'SpeedO',
                           textStyle: TextStyle(
@@ -107,11 +105,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 color: Colors.redAccent,
                 borderRadius: BorderRadius.circular(30.0),
@@ -120,20 +118,22 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   onPressed: () {
                     //Go to registration screen.
                     /*Navigator.pushNamed(context, LoginScreen.id);*/
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    isDriver = null;
                   },
                   minWidth: 200.0,
                   height: 42.0,
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(
-                        color: Colors.white,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
             ),
-           /* RoundedButton(
+            /* RoundedButton(
               title: 'Log In',
               colour: Colors.redAccent,
               onPress: () {
@@ -142,7 +142,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               },
             ),*/
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 color: Colors.redAccent,
                 borderRadius: BorderRadius.circular(30.0),
@@ -150,17 +150,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 child: MaterialButton(
                   onPressed: () {
                     //Go to registration screen.
-                   /* Navigator.pushNamed(context, RegistrationScreen.id);*/
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen()));
-
+                    /* Navigator.pushNamed(context, RegistrationScreen.id);*/
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationScreen()));
                   },
                   minWidth: 200.0,
                   height: 42.0,
-                  child: Text(
+                  child: const Text(
                     'Register',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
