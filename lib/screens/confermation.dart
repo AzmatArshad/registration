@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import 'login_screen.dart';
 import 'welcome_screen.dart';
 
 class Confermation extends StatefulWidget {
   static String id = 'confermation';
-  const Confermation({Key? key}) : super(key: key);
+  Confermation({Key? key}) : super(key: key);
 
   @override
   State<Confermation> createState() => _ConfermationState();
@@ -15,15 +16,12 @@ class _ConfermationState extends State<Confermation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),
-
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-
             children: <Widget>[
               /*  SizedBox(
               width: 80.0,
@@ -31,11 +29,9 @@ class _ConfermationState extends State<Confermation> {
               SizedBox(
                 height: 250.0,
               ),
-
               Center(
                 child: Hero(
                   tag: 'heroAnimate',
-
                   child: Container(
                     child: Text(
                       "SpeedO",
@@ -52,7 +48,6 @@ class _ConfermationState extends State<Confermation> {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 220.0,
               ),
@@ -68,10 +63,16 @@ class _ConfermationState extends State<Confermation> {
                       child: MaterialButton(
                         onPressed: () {
                           //Implement login functionality.
-                         /* Navigator.pushNamed(context, WelcomeScreen.id);*/
-                         /* Navigator.push(context, WelcomeScreen.id);*/
-                         /* Navigator.push(context, WelcomeScreenRoute(build: (context => WelcomeScreen,))*/
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                          /* Navigator.pushNamed(context, WelcomeScreen.id);*/
+                          /* Navigator.push(context, WelcomeScreen.id);*/
+                          /* Navigator.push(context, WelcomeScreenRoute(build: (context => WelcomeScreen,))*/
+                          setState(() {
+                            isDriver = false;
+                          });
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen()));
                         },
                         minWidth: 100.0,
                         height: 42.0,
@@ -82,7 +83,6 @@ class _ConfermationState extends State<Confermation> {
                       ),
                     ),
                   ),
-
                   SizedBox(
                     width: 100.0,
                   ),
@@ -95,8 +95,14 @@ class _ConfermationState extends State<Confermation> {
                       child: MaterialButton(
                         onPressed: () {
                           //Implement login functionality.
-                         /* Navigator.pushNamed(context, WelcomeScreen.id);*/
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                          /* Navigator.pushNamed(context, WelcomeScreen.id);*/
+                          setState(() {
+                            isDriver = true;
+                          });
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen()));
                         },
                         minWidth: 100.0,
                         height: 42.0,
@@ -109,8 +115,7 @@ class _ConfermationState extends State<Confermation> {
                   ),
                 ],
               ),
-            ]
-        ),
+            ]),
       ),
     );
   }
